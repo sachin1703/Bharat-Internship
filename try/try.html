@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <link rel="stylesheet" type="text/css" href="try.css">
+</head>
+<body>
+  <h1>Temperature Converter</h1>
+  <input type="number" id="temperature" placeholder="Enter temperature">
+  <br>
+  <input type="radio" name="conversion" value="celsiusToFahrenheit" checked> Celsius to Fahrenheit
+  <input type="radio" name="conversion" value="fahrenheitToCelsius"> Fahrenheit to Celsius
+  <br>
+  <button onclick="convertTemperature()">Convert</button>
+  <br>
+  <h2 id="result"></h2>
+
+  <script src="try.js"></script>
+</body>
+</html>
+
+<!--
+CSS (style.css):
+
+css
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+}
+
+input, button {
+  margin: 10px;
+}
+
+#result {
+  font-size: 24px;
+  color: #333;
+}
+
+
+JavaScript (script.js):
+
+javascript
+function convertTemperature() {
+  var temperature = parseFloat(document.getElementById("temperature").value);
+  var conversionType = document.querySelector('input[name="conversion"]:checked').value;
+  var resultElement = document.getElementById("result");
+
+  if (conversionType === "celsiusToFahrenheit") {
+    var convertedTemperature = (temperature * 9/5) + 32;
+    resultElement.innerText = temperature + "°C is " + convertedTemperature + "°F";
+  } else {
+    var convertedTemperature = (temperature - 32) * 5/9;
+    resultElement.innerText = temperature + "°F is " + convertedTemperature + "°C";
+  }
+}
